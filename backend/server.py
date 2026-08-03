@@ -1,4 +1,4 @@
-"""GlobalPay AI backend — FastAPI + MongoDB.
+"""GLOBiN Pay backend — FastAPI + MongoDB.
 
 Provides JWT auth, multi-currency wallet, transfers, invoices, KYC (mocked),
 live FX rates, smart fee calculator, analytics, and an AI Financial Assistant
@@ -61,7 +61,7 @@ PUBLIC_APP_URL = (
 client = AsyncIOMotorClient(MONGO_URL)
 db = client[DB_NAME]
 
-app = FastAPI(title="GlobalPay AI")
+app = FastAPI(title="GLOBiN Pay")
 app.state.db = db
 api = APIRouter(prefix="/api")
 
