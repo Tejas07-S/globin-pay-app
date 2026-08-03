@@ -36,6 +36,7 @@ from routes_payment_methods import router as payment_methods_router
 
 # --- Config ---
 MONGO_URL = os.environ["MONGO_URL"]
+print("MONGO_URL DEBUG:", repr(MONGO_URL))
 DB_NAME = os.environ["DB_NAME"]
 JWT_SECRET = os.environ.get("JWT_SECRET")
 if not JWT_SECRET:
