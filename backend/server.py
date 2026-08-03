@@ -36,7 +36,11 @@ from routes_payment_methods import router as payment_methods_router
 
 # --- Config ---
 MONGO_URL = os.environ["MONGO_URL"]
+<<<<<<< HEAD
 print("MONGO_URL DEBUG:", repr(MONGO_URL))
+=======
+print("DEBUG MONGO_URL:", repr(MONGO_URL))
+>>>>>>> 3c328825 (Debug Mongo URL)
 DB_NAME = os.environ["DB_NAME"]
 JWT_SECRET = os.environ.get("JWT_SECRET")
 if not JWT_SECRET:
@@ -666,8 +670,13 @@ app.include_router(payment_methods_router)
 
 app.add_middleware(
     CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:8081",
+        "https://globin-pay-app.vercel.app",
+        "https://globin-pay-3azkxf5jd-tejassrivastav2-9453s-projects.vercel.app",
+    ],
     allow_credentials=True,
-    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
