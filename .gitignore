@@ -1,0 +1,23 @@
+# Environment files
+.env
+backend/.env
+frontend/.env
+
+# Virtual environments
+.venv/
+backend/.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+
+# macOS
+.DS_Store
