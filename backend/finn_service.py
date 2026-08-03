@@ -50,7 +50,7 @@ import httpx
 
 logger = logging.getLogger("gp.finn")
 
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AQ.Ab8RN6IJGOZ1e_QH-NLn_3eR6jIH1xdzojkzkBTW9ZZeHEWNZA")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-flash-latest")
 GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta"
 GEMINI_TIMEOUT_SECONDS = float(os.environ.get("GEMINI_TIMEOUT_SECONDS", "12"))
@@ -70,7 +70,7 @@ OPENAI_TIMEOUT_SECONDS = float(os.environ.get("OPENAI_TIMEOUT_SECONDS", "12"))
 # (not preview) as of this writing. Both models suggested in earlier specs
 # (llama-3.3-70b-versatile, deepseek-r1-distill-llama-70b) are confirmed
 # deprecated/decommissioned by Groq's own docs — do not revert to either.
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "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")
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
 GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 GROQ_TIMEOUT_SECONDS = float(os.environ.get("GROQ_TIMEOUT_SECONDS", "12"))
