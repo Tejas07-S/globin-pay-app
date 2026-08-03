@@ -671,7 +671,7 @@ app.add_middleware(
         "http://localhost:3000",
         "http://localhost:8081",
         "https://globin-pay-app.vercel.app",
-        "https://globin-pay-3azkxf5jd-tejassrivastav2-9453s-projects.vercel.app",
+        "https://globin-pay-jm9oazkfb-tejassrivastav2-9453s-projects.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
