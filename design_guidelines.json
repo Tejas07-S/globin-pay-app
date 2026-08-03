@@ -1,0 +1,207 @@
+{
+  "app_name": "GlobalPay AI",
+  "personality": "1 iOS-Native Clean structure with 6 Glass / Luxe surfaces",
+  "personality_one_liner": "A cinematic, deeply modern financial experience that merges the utility of Wise with the premium, glass-layered aesthetic of Apple Wallet.",
+  "color": {
+    "surface": "#0A0A0A",
+    "onSurface": "#FAFAFA",
+    "surfaceSecondary": "#141414",
+    "onSurfaceSecondary": "#A1A1AA",
+    "surfaceTertiary": "#1C1C1E",
+    "onSurfaceTertiary": "#71717A",
+    "surfaceInverse": "#FAFAFA",
+    "onSurfaceInverse": "#0A0A0A",
+    "brand": "#059669",
+    "brandPrimary": "#10B981",
+    "onBrandPrimary": "#022C22",
+    "brandSecondary": "#047857",
+    "onBrandSecondary": "#D1FAE5",
+    "brandTertiary": "#022C22",
+    "onBrandTertiary": "#34D399",
+    "success": "#10B981",
+    "onSuccess": "#022C22",
+    "warning": "#F59E0B",
+    "onWarning": "#451A03",
+    "error": "#EF4444",
+    "onError": "#450A0A",
+    "info": "#3B82F6",
+    "onInfo": "#EFF6FF",
+    "border": "#27272A",
+    "borderStrong": "#3F3F46",
+    "divider": "#27272A"
+  },
+  "typography": {
+    "displayFontFamily": "Space Grotesk",
+    "textFontFamily": "Geist",
+    "scale": {
+      "sm": 12,
+      "base": 14,
+      "lg": 16,
+      "xl": 20,
+      "2xl": 24
+    }
+  },
+  "spacing": {
+    "rule": "Avoid extra spaces where not required, handle padding and margin correctly, and keep button/component padding subtle.",
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "2xl": 32,
+    "3xl": 48
+  },
+  "radius_tokens": {
+    "sm": 6,
+    "md": 12,
+    "lg": 20,
+    "pill": 999
+  },
+  "shadow_tier": 0,
+  "navigation": "bottom_tabs",
+  "icon_set": "Phosphor",
+  "glassmorphism": {
+    "enabled": true,
+    "do's": [
+      "Sticky headers over scrolling content",
+      "Bottom tab bar when content scrolls behind it",
+      "Featured/hero cards using frosted glass overlay sitting on the hero_texture backdrop",
+      "Pinned filter rows / segmented controls",
+      "Bottom-sheet headers and drag handles"
+    ],
+    "dont's": [
+      "Every button, list row, or chip",
+      "Form inputs and body content areas",
+      "Stacking more than 2 blur surfaces per screen"
+    ]
+  },
+  "platform_libraries": {
+    "glass": {
+      "ios": "expo-glass-effect",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "blur": "expo-blur",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler"
+  },
+  "screens": [
+    {
+      "name": "Onboarding/Login",
+      "purpose": "A cinematic entry point highlighting the biometric security and premium feel.",
+      "states": {
+        "loading": "Centered minimalist spinner",
+        "empty": "N/A",
+        "error": "Readable inline error message below input"
+      },
+      "layout": "Full-bleed background hero texture with a dark gradient scrim (top to bottom fade). Large Space Grotesk display typography for the greeting. Email/Password inputs in surfaceTertiary fields with a distinct biometric (FaceID/TouchID) stylized visual cue. Sticky 'Continue' button at the bottom."
+    },
+    {
+      "name": "Multi-currency Wallet Dashboard",
+      "purpose": "The core hub showing total portfolio balance, currency breakdown, and quick actions.",
+      "states": {
+        "loading": "Skeleton loaders for balances and transaction rows",
+        "empty": "Illustration for 'No accounts added yet' + Primary CTA to 'Add Money'",
+        "error": "Alert banner for connection failure + 'Retry' button"
+      },
+      "layout": "Top Header: greeting, avatar, notifications. Primary Balance Card (glassmorphism on texture background): large total value. Currency Strip: horizontal scroll of chips/cards (USD, EUR) showing individual balances. Quick Actions Row: Send, Receive, Exchange. Recent Activity: vertical list of transactions (using merchant logos). Fixed Bottom Tab Bar."
+    },
+    {
+      "name": "Send Money Calculator",
+      "purpose": "Upfront transfer calculator and smart fee breakdown before execution.",
+      "states": {
+        "loading": "Shimmer effect on the exchange rate value",
+        "empty": "N/A",
+        "error": "Inline red text for 'Insufficient funds' or 'Network error'"
+      },
+      "layout": "Single-column scroll. Top: huge amount input (tabular numbers). Middle: 'From/To' currency selectors with a swap icon. Below input: Live exchange rate, Transfer fee, Estimated delivery amount. Lower: Searchable recipient list with avatars/flags. Bottom: Sticky 'Continue to Review' primary CTA."
+    },
+    {
+      "name": "Live Exchange Rates Dashboard",
+      "purpose": "Monitor currency pairs with live percentage movements and charts.",
+      "states": {
+        "loading": "Chart placeholder skeleton",
+        "empty": "N/A",
+        "error": "Error state with 'Unable to fetch live rates' + Retry"
+      },
+      "layout": "Header with 'Market Rates'. Line chart taking up the top half for selected pair. Bottom half: Vertical list of currency pairs with mini sparklines, current rate, and daily percentage change (using success/error colors for +/-). Glassy segmented control to switch timeframes."
+    },
+    {
+      "name": "AI Financial Assistant",
+      "purpose": "Conversational interface for intelligent spending insights and task automation.",
+      "states": {
+        "loading": "AI 'thinking' typing indicator dots",
+        "empty": "Suggested prompt chips floating above input area",
+        "error": "Message bubble marked as 'Failed to send' with retry icon"
+      },
+      "layout": "Standard chat interface. Messages from AI use brandTertiary tint. User messages use surfaceSecondary. Input field anchored above keyboard using KeyboardAvoidingView. Quick action chips inline for 'Show Net Worth', 'Analyze Spending'."
+    },
+    {
+      "name": "Analytics Dashboard",
+      "purpose": "Detailed insights into net worth, spending categories, and income.",
+      "states": {
+        "loading": "Chart skeletons",
+        "empty": "Placeholder text 'Not enough data yet' with faded chart",
+        "error": "Error boundary 'Could not load analytics'"
+      },
+      "layout": "Hero metric (Total Net Worth or Monthly Spend). Glassy tab selector for 'Net Worth', 'Spending', 'Income'. A prominent bar/donut chart. Below chart: categorized spending list with merchant logos inside brandTertiary tinted rounded squares."
+    },
+    {
+      "name": "KYC Flow",
+      "purpose": "Secure identity verification via passport upload and selfie liveness.",
+      "states": {
+        "loading": "Uploading document overlay",
+        "empty": "N/A",
+        "error": "Blurry document error prompt with 'Retake Photo' button"
+      },
+      "layout": "Step-by-step wizard. Step 1: Camera viewfinder frame with passport outline overlay. Step 2: Selfie circle mask with instructions 'Move closer'. Progress indicator at top. Bottom fixed CTA 'Submit Document'."
+    },
+    {
+      "name": "Freelancer Tools",
+      "purpose": "Generate invoices, view payment links, and track income streams.",
+      "states": {
+        "loading": "List skeleton",
+        "empty": "Illustration 'No invoices created yet' + 'Create Invoice' button",
+        "error": "Failed to load invoices"
+      },
+      "layout": "Header: 'Freelance Hub'. Top row: two large cards (Total Invoiced, Pending Payments). Middle: 'Create New Invoice' prominent banner. Bottom: List of recent invoices with status badges (Paid, Pending, Overdue in success/warning/error colors)."
+    }
+  ],
+  "images": {
+    "hero_texture": {
+      "url": "https://images.unsplash.com/photo-1548362851-ea052637ad64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGxpZ2h0JTIwZ2xhc3N5JTIwZmx1aWQlMjB0ZXh0dXJlfGVufDB8fHx8MTc4NTMyNzc4NXww&ixlib=rb-4.1.0&q=85",
+      "dark": "https://images.unsplash.com/photo-1710438399422-2fca27686bcd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhcmslMjBnbGFzc3klMjBmbHVpZCUyMHRleHR1cmV8ZW58MHx8fHwxNzg1MzI3NzU4fDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Abstract glassy fluid texture background"
+    },
+    "contact_avatar": {
+      "url": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHwxfHxzbWlsaW5nJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzg1MzI3NzU4fDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Smiling professional portrait for freelancer contact"
+    },
+    "merchant_spotify": {
+      "url": "https://images.unsplash.com/photo-1617722694278-84453e1719a8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxzcG90aWZ5JTIwbG9nbyUyMHBuZyUyMHRyYW5zcGFyZW50fGVufDB8fHx8MTc4NTMyNzc1N3ww&ixlib=rb-4.1.0&q=85",
+      "alt": "Spotify logo png transparent"
+    },
+    "merchant_nike": {
+      "url": "https://images.unsplash.com/photo-1637844528447-aee837ccfc7f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxuaWtlJTIwbG9nbyUyMHBuZyUyMHRyYW5zcGFyZW50fGVufDB8fHx8MTc4NTMyNzc1N3ww&ixlib=rb-4.1.0&q=85",
+      "alt": "Nike logo png transparent"
+    },
+    "merchant_apple": {
+      "url": "https://images.unsplash.com/photo-1621768216002-5ac171876625?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwxfHxhcHBsZSUyMGxvZ28lMjBwbmclMjB0cmFuc3BhcmVudHxlbnwwfHx8fDE3ODUzMjc3ODV8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Apple logo png transparent"
+    },
+    "kyc_passport": {
+      "url": "https://images.unsplash.com/photo-1581553673739-c4906b5d0de8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwxfHxwYXNzcG9ydCUyMGRvY3VtZW50JTIwYmxhbmt8ZW58MHx8fHwxNzg1MzI3Nzg1fDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Passport document blank"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Strictly follow the Dark Luxe Fintech aesthetic. No generic AI blue/purple whatsoever; rely on the Near-Black/Charcoal palette mapped in the color object, accented by Emerald (#10B981) for positive financial indicators.",
+    "Implement glassmorphism selectively: the hero balance card on the dashboard must sit over the 'hero_texture' image, utilizing a dark gradient scrim (layer 1) to ensure the text (layer 2) maintains WCAG AAA readability.",
+    "The Send Money Calculator MUST place the primary CTA inside a fixed container at the screen root, anchored above the Safe Area Bottom, with the content scrolling behind it. It should not be buried at the end of the scroll.",
+    "Use Space Grotesk exclusively for numbers, balances, and large display titles to give it an authentic, tech-forward 'Linear/Vercel' feel, and pair it with Geist for all body text.",
+    "In the Multi-Currency Wallet Dashboard, use 'merchant_spotify', 'merchant_nike', and 'merchant_apple' images as transaction logos inside `brandTertiary` tinted rounded squares for the recent activity list, rather than generic icons.",
+    "Do not use system-default alerts or standard headers. Every screen top-level wrapper should account for safe area, and navigation headers should be customized to blend with the 'surface' background."
+  ]
+}
