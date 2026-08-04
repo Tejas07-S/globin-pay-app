@@ -667,12 +667,13 @@ app.include_router(payment_methods_router)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://localhost:8081",
-        "https://globin-pay-app.vercel.app",
-        "https://globin-pay-jm9oazkfb-tejassrivastav2-9453s-projects.vercel.app",
-    ],
+    allow_origins = [
+    "http://localhost:3000",
+    "http://localhost:8081",
+    "https://globin-pay-app.vercel.app",
+    "https://app.globinpay.com",
+    "https://globinpay.com",
+],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
